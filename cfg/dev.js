@@ -35,5 +35,10 @@ config.module.loaders.push({
     [ path.join(__dirname, '/../src') ]
   )
 });
+// add json loader
+config.module.loaders.push({
+  test: /\.json$/,
+  loader: 'json-loader'
+});
 
 module.exports = config;
