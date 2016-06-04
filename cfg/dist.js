@@ -16,7 +16,7 @@ let config = Object.assign({}, baseConfig, {
   output: {
     path: path.join(__dirname, '/../dist/assets'),
     filename: 'app.js',
-    publicPath: 'assets/'
+    publicPath: 'assets'
   },
   plugins: [
     new webpack.optimize.DedupePlugin(),
@@ -42,6 +42,11 @@ config.module.loaders.push({
     config.additionalPaths,
     [ path.join(__dirname, '/../src') ]
   )
+});
+// add json loader
+config.module.loaders.push({
+  test: /\.json$/,
+  loader: 'json-loader'
 });
 
 module.exports = config;
