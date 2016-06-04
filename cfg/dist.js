@@ -16,7 +16,7 @@ let config = Object.assign({}, baseConfig, {
   output: {
     path: path.join(__dirname, '/../dist/assets'),
     filename: 'app.js',
-    publicPath: '/gallery-by-react/assets'
+    publicPath: '/gallery-by-react/assets/'
   },
   plugins: [
     new webpack.optimize.DedupePlugin(),
