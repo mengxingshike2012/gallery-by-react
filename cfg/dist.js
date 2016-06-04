@@ -14,9 +14,9 @@ let config = Object.assign({}, baseConfig, {
   cache: false,
   devtool: 'sourcemap',
   output: {
-    path: path.join(__dirname, '../dist/assets'),
+    path: path.join(__dirname, '/../dist/assets'),
     filename: 'app.js',
-    publicPath: defaultSettings.publicPath
+    publicPath: 'assets/'
   },
   plugins: [
     new webpack.optimize.DedupePlugin(),
