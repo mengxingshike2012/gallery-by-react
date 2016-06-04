@@ -14,8 +14,8 @@ export default class ImgFigure extends React.Component {
       styleObj = this.props.arrange.pos;
     }
     if (this.props.arrange.rotate) {
-      (['-moz-', '-ms-', '-webkit-', '']).forEach(function(value) {
-        styleObj[value + 'transform'] = 'rotate(' + this.props.arrange.rotate + 'deg)';
+      (['MozTransform', 'msTransform', 'WebkitTransform', 'transform']).forEach(function(value) {
+        styleObj[value] = 'rotate(' + this.props.arrange.rotate + 'deg)';
       }.bind(this))
 
     }

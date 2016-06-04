@@ -3,7 +3,8 @@ require('styles/App.scss');
 
 import React from 'react';
 import {findDOMNode} from 'react-dom';
-import ImgFigure from './ImgFigure.js'
+import ImgFigure from './ImgFigure.js';
+import ControllerUnit from './ControllerUnit.js';
 
 // let yeomanImage = require('../images/yeoman.png');
 
@@ -123,7 +124,7 @@ class AppComponent extends React.Component {
         vPosRangeX = vPosRange.x,
 
         imgsArrangeTopArr = [],
-        topImgNum = Math.ceil(Math.random() * 2),
+        topImgNum = Math.floor(Math.random() * 2),
         topImgSpliceIndex = 0,
 
         imgsArrangeCenterArr = imgsArrangeArr.splice(centerIndex, 1);
@@ -199,7 +200,8 @@ class AppComponent extends React.Component {
           isCenter: false
         }
       }
-      imgFigures.push(<ImgFigure data={value} ref={'imgFigure' + index} arrange={this.state.imgsArrangeArr[index]} inverse={this._inverse(index)} center={this._center(index)}/>);
+      imgFigures.push(<ImgFigure key={index} data={value} ref={'imgFigure' + index} arrange={this.state.imgsArrangeArr[index]} inverse={this._inverse(index)} center={this._center(index)}/>);
+      controllerUnits.push(<ControllerUnit  key={index} arrange={this.state.imgsArrangeArr[index]} inverse={this._inverse(index)} center={this._center(index)}/>);
     }.bind(this));
     return (
       <section className="stage" ref="stage">
@@ -208,6 +210,7 @@ class AppComponent extends React.Component {
         </section>
           {controllerUnits}
         <section className="controller-nav">
+          {controllerUnits}
         </section>
       </section>
     );
